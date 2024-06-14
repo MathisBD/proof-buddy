@@ -59,16 +59,20 @@ library
     import:           warnings
 
     -- Modules exported by the library.
-    exposed-modules:  MyLib
+    -- exposed-modules: 
 
     -- Modules included in this library but not exported.
-    -- other-modules:
+    other-modules: PB.Data.FVarId
+                 , PB.Data.Name 
+                 , PB.Data.Term
 
     -- LANGUAGE extensions used by modules in this package.
-    -- other-extensions:
+    --other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base ^>=4.17.2.1
+    build-depends: base ^>=4.17.2.1 
+                 , text ^>=2.0.2
+                 , bitfield 
 
     -- Directories containing source files.
     hs-source-dirs:   src
