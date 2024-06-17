@@ -1,4 +1,12 @@
 (library
  (name lib)
  (public_name proof-buddy.lib)
- (libraries proof-buddy.utils))
+ (libraries proof-buddy.utils menhirLib)
+ (preprocess
+  (pps ppx_deriving.show)))
+
+(ocamllex lexer)
+
+(menhir
+ (modules parser)
+ (explain true))

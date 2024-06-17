@@ -4,17 +4,13 @@ This is a toy implementation of a proof assistant (similar in spirit to Coq or L
 
 # Initial setup
 
-1. Create a local OPAM switch :
+1. Create a local OPAM switch and install required dependencies :
 ```
 opam switch create . 5.1.1
+eval $(opam env)
 ```
 
-2. Install required dependencies : 
-```
-opam install . --deps-only
-```
-
-3. Install optional (development) dependencies. This depends on your editor, for VS Code use :
+2. Install optional (development) dependencies. This depends on your editor, for VS Code use :
 ```
 opam install ocaml-lsp-server ocamlformat user-setup
 opam user-setup install
@@ -22,8 +18,5 @@ opam user-setup install
 
 # Building and running
 
-To build : 
-```
-dune build
-```
+Use the commands in the Makefile such as `make`, `make test` and `make clean`.
 
