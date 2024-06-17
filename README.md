@@ -14,7 +14,7 @@ opam switch create . 5.1.1
 opam install . --deps-only
 ```
 
-3. Install optional (development) dependencies. For VS Code :
+3. Install optional (development) dependencies. This depends on your editor, for VS Code use :
 ```
 opam install ocaml-lsp-server ocamlformat user-setup
 opam user-setup install

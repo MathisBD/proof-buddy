@@ -139,7 +139,7 @@ struct
   include Make (struct
     type 'a t = T.t -> 'a
 
-    let return x env = x
+    let return x _env = x
     let bind x f env = f (x env) env
   end)
 

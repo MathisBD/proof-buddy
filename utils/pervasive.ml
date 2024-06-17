@@ -85,7 +85,7 @@
         let rec loop x_max = function
           | [] -> x_max
           | hd :: tl when f x_max < f hd -> loop hd tl
-          | hd :: tl -> loop x_max tl
+          | _ :: tl -> loop x_max tl
         in
         match xs with [] -> None | x :: xs -> Some (loop x xs)
     end
