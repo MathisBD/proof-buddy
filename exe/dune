@@ -1,0 +1,4 @@
+(executable
+ (name main)
+ (public_name proof-buddy.main)
+ (libraries proof-buddy.lib))

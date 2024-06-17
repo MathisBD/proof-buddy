@@ -1,0 +1,6 @@
+(library
+ (name utils)
+ (public_name proof-buddy.utils)
+ (libraries qcheck-core batteries.unthreaded)
+ (preprocess
+  (pps ppx_deriving.show)))

@@ -1,29 +1,35 @@
-# Created by https://www.toptal.com/developers/gitignore/api/haskell
-# Edit at https://www.toptal.com/developers/gitignore?templates=haskell
+# Created by https://www.toptal.com/developers/gitignore/api/ocaml
+# Edit at https://www.toptal.com/developers/gitignore?templates=ocaml
 
-### Haskell ###
-dist
-dist-*
-cabal-dev
+### OCaml ###
+*.annot
+*.cmo
+*.cma
+*.cmi
+*.a
 *.o
-*.hi
-*.hie
-*.chi
-*.chs.h
-*.dyn_o
-*.dyn_hi
-.hpc
-.hsenv
-.cabal-sandbox/
-cabal.sandbox.config
-*.prof
-*.aux
-*.hp
-*.eventlog
-.stack-work/
-cabal.project.local
-cabal.project.local~
-.HTF/
-.ghc.environment.*
+*.cmx
+*.cmxs
+*.cmxa
 
-# End of https://www.toptal.com/developers/gitignore/api/haskell
+# ocamlbuild working directory
+_build/
+
+# ocamlbuild targets
+*.byte
+*.native
+
+# oasis generated files
+setup.data
+setup.log
+
+# Merlin configuring file for Vim and Emacs
+.merlin
+
+# Dune generated files
+*.install
+
+# Local OPAM switch
+_opam/
+
+# End of https://www.toptal.com/developers/gitignore/api/ocaml
