@@ -12,6 +12,7 @@ open Syntax
 %token <string> Ident
 %token Eof
 
+%nonassoc fun_prec forall_prec
 %left ThinArrow
 %nonassoc At
 
@@ -28,15 +29,19 @@ term:
 | ident=Ident { Id (Name.make ident) }
 | Prop { Sort Prop }
 | Type { Sort Type }
-| Fun x=binder Colon ty=term FatArrow body=term { Lambda (x, Some ty, body) }
-| Fun x=binder FatArrow body=term { Lambda (x, None, body) }
-| Forall x=binder Colon ty=term Comma body=term { Prod (x, Some ty, body) }
-| Forall x=binder Comma body=term { Prod (x, None, body) }
+| Fun xty=typed_binder FatArrow body=term %prec fun_prec 
+  { let x, ty = xty in Lambda (x, ty, body) }
+| Forall xty=typed_binder Comma body=term %prec forall_prec 
+  { let x, ty = xty in Prod (x, ty, body) }
 | t1=term ThinArrow t2=term { Prod (Anonymous, Some t1, t2) } 
 | t=term At ty=term { Ann (t, ty) }
 | LParen t=term RParen { t }
-(*| t1=term t2=term { App (t1, [ t2 ]) }*)
+(*| t1=term t2=term %prec app_prec { App (t1, [ t2 ]) }*)
 (*| error { failwith "SyntaxError : TODO" (* ($startpos, $endpos) *) }*)
+
+typed_binder:
+| x=binder Colon ty=term { (x, Some ty) }
+| x=binder { (x, None) }
 
 binder:
 | Underscore { Anonymous }

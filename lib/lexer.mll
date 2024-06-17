@@ -3,7 +3,7 @@ open Utils.Pervasive
 open Syntax
 open Parser
 
- (** Convert a [Lexing.position] to a [Position.t]. *)
+(** Convert a [Lexing.position] to a [Position.t]. *)
 let convert_lexpos (lexpos : Lexing.position) : Position.t =
   { pos_fname = lexpos.pos_fname
   ; pos_char = lexpos.pos_cnum

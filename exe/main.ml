@@ -1,6 +1,6 @@
 open Lib
 
-let example = "f x"
+let example = "forall _ : nat -> nat, forall y, forall z, P"
 
 let parse_string str : (Syntax.t, Syntax.syntaxError) result =
   let lexbuf = Lexing.from_string ~with_positions:true str in
