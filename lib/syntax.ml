@@ -27,6 +27,7 @@ end
 type syntaxError =
   | UnexpectedToken of string * Position.t * Position.t
   | UnexpectedEOF of Position.t
+  | ParsingError of Position.t * Position.t
 [@@deriving show]
 
 exception SyntaxError of syntaxError
