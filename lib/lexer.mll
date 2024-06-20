@@ -11,7 +11,6 @@ let convert_lexpos (lexpos : Lexing.position) : Position.t =
   ; pos_column = lexpos.pos_cnum - lexpos.pos_bol
   }
 
-
 let keywords = 
   Hashtbl.of_list
     [ ( "fun", Fun )

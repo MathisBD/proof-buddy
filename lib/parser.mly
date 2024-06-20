@@ -20,7 +20,7 @@ let convert_lexpos (lexpos : Lexing.position) : Position.t =
 %token <string> Ident
 %token Eof
 
-%start <t> main
+%start <Syntax.term> main
 %%
 
 (*******************************************************************************)

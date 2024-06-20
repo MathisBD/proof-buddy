@@ -49,26 +49,26 @@ type binder =
 [@@deriving show]
 
 (** This type represents the syntax of surface terms. *)
-type t =
+type term =
   (* A raw identifier. This could be a local variable or a global constant.
      The task of resolving the identifier (i.e. scoping) is part of type checking. *)
   | Id of Name.t
   (* A sort. *)
   | Sort of level
   (* Lambda abstraction. The type annotation on the binder is optional. *)
-  | Lambda of binder * ty option * t
+  | Lambda of binder * ty option * term
   (* (Dependent) product. The type annotation on the binder is optional. *)
-  | Prod of binder * ty option * t
+  | Prod of binder * ty option * term
   (* Function application. We maintain the invariant that the argument list
      is non-empty and that the function is not itself an application. *)
-  | App of t * t list
+  | App of term * term list
   (* Type annotation. *)
-  | Ann of t * ty
+  | Ann of term * ty
   (* Attach a start and end position to a term.
      This is used to provide better error messages to the user. *)
-  | Pos of t * Position.t * Position.t
+  | Pos of term * Position.t * Position.t
 [@@deriving show]
 
 (** To enhance readability we define a synonym for terms that are to be 
     interpreted as types. *)
-and ty = t [@@deriving show]
+and ty = term [@@deriving show]
